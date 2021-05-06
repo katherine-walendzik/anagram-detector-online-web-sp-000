@@ -1,17 +1,13 @@
 class Anagram
-  attr_accessor :anagram
-  
-  def initialize(anagram)
-    @anagram = anagram
+  attr_accessor :word
+
+  def initialize(word)
+    @word = word
   end
 
-  def match(words)
-    words.select do |word|
-      is_anagram?(word)
+  def match(word_array)
+    word_array.select do |word|
+      word.split("").sort == @word.split("").sort
     end
-  end
-
-  def is_anagram?(word)
-    word.chars.sort == @anagram.chars.sort
   end
 end
